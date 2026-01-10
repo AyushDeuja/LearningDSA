@@ -13,8 +13,7 @@ class Queue:
             return self.items.pop(0)
         raise IndexError("dequeue from empty queue")
 
-    def size(self):
-        return len(self.items)
+ 
     
 queue = Queue()
 queue.enqueue(10)
