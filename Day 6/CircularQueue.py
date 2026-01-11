@@ -6,7 +6,7 @@ class CircularQueue:
         self.rear = -1
 
     def Enqueue(self, item):
-        if (self.rear + 1) % self.front:
+        if (self.rear + 1) % self.size == self.front:
             raise OverflowError("Queue is full")
         elif self.front == -1:
             self.front = 0
@@ -20,11 +20,24 @@ class CircularQueue:
         if self.front == -1:
             raise IndexError("Queue is empty")
         elif self.front == self.rear:
-            item = self.items[self.front]
+            print(self.items[self.front])
             self.front = -1
             self.rear = -1
-            return item
         else:
-            item = self.items[self.front]
+            print(self.items[self.front])
             self.front = (self.front + 1) % self.size
-            return item
+
+circQueue = CircularQueue(5)
+circQueue.Enqueue(10)
+circQueue.Enqueue(20)
+circQueue.Enqueue(30)
+circQueue.Enqueue(40)
+circQueue.Enqueue(50)
+circQueue.Dequeue() 
+circQueue.Enqueue(60) 
+circQueue.Dequeue()
+circQueue.Dequeue()
+circQueue.Dequeue()
+circQueue.Dequeue()
+circQueue.Dequeue()
+
